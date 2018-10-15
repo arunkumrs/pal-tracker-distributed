@@ -3,6 +3,7 @@ package test.pivotal.pal.tracker.allocations;
 import io.pivotal.pal.tracker.allocations.*;
 import io.pivotal.pal.tracker.allocations.data.AllocationDataGateway;
 import io.pivotal.pal.tracker.allocations.data.AllocationRecord;
+import io.pivotal.pal.tracker.projectclient.ProjectClient;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +19,11 @@ import static org.mockito.Mockito.*;
 import static test.pivotal.pal.tracker.allocations.TestBuilders.*;
 
 
+@SuppressWarnings("unchecked")
 public class AllocationControllerTest {
 
     private AllocationDataGateway allocationDataGateway = mock(AllocationDataGateway.class);
-    private ProjectClient client = mock(ProjectClient.class);
+    private ProjectClient<ProjectInfo> client = mock(ProjectClient.class);
     private AllocationController allocationsController = new AllocationController(allocationDataGateway, client);
 
 

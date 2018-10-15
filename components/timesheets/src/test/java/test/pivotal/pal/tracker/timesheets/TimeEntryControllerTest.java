@@ -1,5 +1,6 @@
 package test.pivotal.pal.tracker.timesheets;
 
+import io.pivotal.pal.tracker.projectclient.ProjectClient;
 import io.pivotal.pal.tracker.timesheets.*;
 import io.pivotal.pal.tracker.timesheets.data.TimeEntryDataGateway;
 import io.pivotal.pal.tracker.timesheets.data.TimeEntryFields;
@@ -17,10 +18,11 @@ import static org.mockito.Mockito.*;
 import static test.pivotal.pal.tracker.timesheets.TestBuilders.*;
 
 
+@SuppressWarnings("unchecked")
 public class TimeEntryControllerTest {
 
     private TimeEntryDataGateway gateway = mock(TimeEntryDataGateway.class);
-    private ProjectClient client = mock(ProjectClient.class);
+    private ProjectClient<ProjectInfo> client = mock(ProjectClient.class);
     private TimeEntryController controller = new TimeEntryController(gateway, client);
 
 

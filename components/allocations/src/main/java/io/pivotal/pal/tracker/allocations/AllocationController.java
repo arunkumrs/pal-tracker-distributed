@@ -3,6 +3,7 @@ package io.pivotal.pal.tracker.allocations;
 import io.pivotal.pal.tracker.allocations.data.AllocationDataGateway;
 import io.pivotal.pal.tracker.allocations.data.AllocationFields;
 import io.pivotal.pal.tracker.allocations.data.AllocationRecord;
+import io.pivotal.pal.tracker.projectclient.ProjectClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +20,9 @@ import static java.util.stream.Collectors.toList;
 public class AllocationController {
 
     private final AllocationDataGateway gateway;
-    private final ProjectClient client;
+    private final ProjectClient<ProjectInfo> client;
 
-    public AllocationController(AllocationDataGateway gateway, ProjectClient client) {
+    public AllocationController(AllocationDataGateway gateway, ProjectClient<ProjectInfo> client) {
         this.gateway = gateway;
         this.client = client;
     }

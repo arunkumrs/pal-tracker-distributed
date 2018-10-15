@@ -3,6 +3,7 @@ package test.pivotal.pal.tracker.backlog;
 import io.pivotal.pal.tracker.backlog.*;
 import io.pivotal.pal.tracker.backlog.data.StoryDataGateway;
 import io.pivotal.pal.tracker.backlog.data.StoryRecord;
+import io.pivotal.pal.tracker.projectclient.ProjectClient;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +20,11 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 import static test.pivotal.pal.tracker.backlog.TestBuilders.*;
 
+@SuppressWarnings("unchecked")
 public class StoryControllerTest {
 
     private StoryDataGateway storyDataGateway = mock(StoryDataGateway.class);
-    private ProjectClient client = mock(ProjectClient.class);
+    private ProjectClient<ProjectInfo> client = mock(ProjectClient.class);
     private StoryController storyController = new StoryController(storyDataGateway, client);
 
     @Test

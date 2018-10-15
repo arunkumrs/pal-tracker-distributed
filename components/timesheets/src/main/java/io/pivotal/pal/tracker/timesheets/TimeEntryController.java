@@ -1,5 +1,6 @@
 package io.pivotal.pal.tracker.timesheets;
 
+import io.pivotal.pal.tracker.projectclient.ProjectClient;
 import io.pivotal.pal.tracker.timesheets.data.TimeEntryDataGateway;
 import io.pivotal.pal.tracker.timesheets.data.TimeEntryFields;
 import io.pivotal.pal.tracker.timesheets.data.TimeEntryRecord;
@@ -19,9 +20,9 @@ import static java.util.stream.Collectors.toList;
 public class TimeEntryController {
 
     private final TimeEntryDataGateway gateway;
-    private final ProjectClient client;
+    private final ProjectClient<ProjectInfo> client;
 
-    public TimeEntryController(TimeEntryDataGateway gateway, ProjectClient client) {
+    public TimeEntryController(TimeEntryDataGateway gateway, ProjectClient<ProjectInfo> client) {
         this.gateway = gateway;
         this.client = client;
     }
